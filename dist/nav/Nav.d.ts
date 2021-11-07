@@ -1,0 +1,43 @@
+import { AppConfig } from "../app";
+import { User } from "../tool";
+import { Navigo, RouteFunc, Hooks, NamedRoute } from "./navigo";
+export declare class Nav {
+    init(): Promise<void>;
+    setUqRoles(uq: string, roles: string[]): void;
+    onChangeLogin: (user: User) => Promise<void>;
+    resolveRoute(): void;
+    navSettings: AppConfig;
+    setSettings(appConfig: AppConfig): void;
+    reload(): void;
+    showReloadPage(msg: string): void;
+    language: string;
+    culture: string;
+    logout(): void;
+    navigate(url: string): void;
+    push<E>(page: E, disposer: () => void): void;
+    replace<E>(page: E, onClosePage: () => void): void;
+    back(): void;
+    pop(level: number): void;
+    ceaseTop(level: number): void;
+    go(showPage: () => void, url: string, absolute: boolean): void;
+    removeCeased(): void;
+    regConfirmClose(confirmClose: () => Promise<boolean>): void;
+    topKey(): any;
+    popTo(topPageKey: any): void;
+    private navigo;
+    isWebNav: boolean;
+    user: User;
+    navBack(): void;
+    onReceive(msg: any): Promise<void>;
+    showAppView(): Promise<void>;
+    startWait(): void;
+    endWait(): void;
+    onError(error: any): Promise<void>;
+    showUpgradeUq(uq: string, version: number): Promise<void>;
+    on(routeFunc: RouteFunc, hooks?: Hooks): Navigo;
+    on(url: string, routeFunc: RouteFunc, hooks?: Hooks): Navigo;
+    on(regex: RegExp, routeFunc: RouteFunc, hooks?: Hooks): Navigo;
+    on(options: {
+        [url: string]: RouteFunc | NamedRoute;
+    }): Navigo;
+}

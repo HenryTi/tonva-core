@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/*
+export async function start(CApp: new (config: AppConfig) => CAppBase<any>, appConfig: AppConfig, isUserLogin?:boolean) {
+    if (appConfig) {
+        let {htmlTitle} = appConfig;
+        if (htmlTitle) {
+            document.title = htmlTitle;
+        }
+        let html = document.getElementsByTagName('html');
+        let html0 = html[0];
+        if (html0) {
+            let version = html0?.getAttribute('data-version');
+            if (version) {
+                //appConfig.version = version;
+            }
+        }
+    }
+
+    let cApp = new CApp(appConfig);
+    await cApp.start(isUserLogin);
+}
+*/ 
+//# sourceMappingURL=start.js.map

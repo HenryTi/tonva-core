@@ -1,0 +1,33 @@
+import { ControllerCore } from './controller';
+import { VPageCore } from './vpage';
+export declare abstract class ViewCore<E, C extends ControllerCore<E>> {
+    protected controller: C;
+    protected readonly res: any;
+    protected readonly x: any;
+    protected readonly t: (str: string) => any;
+    constructor(controller: C);
+    protected get isDev(): boolean;
+    get isWebNav(): boolean;
+    navigate(url: string): void;
+    protected isMe(id: any): boolean;
+    abstract render(param?: any): E;
+    protected renderVm(vm: new (controller: C) => ViewCore<E, C>, param?: any): E;
+    protected openVPage(vp: new (controller: C) => VPageCore<E, C>, param?: any, afterBack?: () => Promise<void>): Promise<void>;
+    protected event(type: string, value?: any): Promise<void>;
+    protected go(showPage: () => void, url: string, absolute?: boolean): void;
+    vCall<C extends ControllerCore<E>>(vp: new (controller: C) => VPageCore<E, C>, param?: any): Promise<any>;
+    protected returnCall(value: any): void;
+    protected abstract renderUser(user: any, imageClassName?: string, textClassName?: string): E;
+    protected abstract renderUserText(user: any): E;
+    protected renderMe(imageClassName?: string, textClassName?: string): E;
+    protected abstract openPage(view: (props: any) => E, param?: any, onClosePage?: (ret: any) => void): void;
+    protected replacePage(view: E, param?: any): void;
+    protected openPageElement(page: E, onClosePage?: () => void): void;
+    protected replacePageElement(page: E, onClosePage?: () => void): void;
+    protected backPage(): void;
+    protected closePage(level?: number): void;
+    protected ceasePage(level?: number): void;
+    protected removeCeased(): void;
+    protected regConfirmClose(confirmClose: () => Promise<boolean>): void;
+    protected popToTopPage(): void;
+}
