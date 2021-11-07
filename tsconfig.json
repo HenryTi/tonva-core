@@ -13,7 +13,7 @@
         "declaration": true,
         "composite": true,
         "outDir": "./dist",
-        "rootDir": "tonva-react",
+        "rootDir": "tonva-core",
         "module": "commonjs",
         "moduleResolution": "node",
         "preserveSymlinks": true,
@@ -27,8 +27,8 @@
         "jsx": "react-jsx",
         "strictNullChecks": false,
         "experimentalDecorators": true,
-        "baseUrl": "tonva-react/",
-		"typeRoots" : ["node_modules/@types", "tonva-react/types"]
+        "baseUrl": "./tonva-core",
+		"typeRoots" : ["node_modules/@types"]
     },
     "exclude": [
         "node_modules",

@@ -1,7 +1,7 @@
 {
-  "name": "tonva-react",
-  "version": "2.0.135",
-  "description": "tonva react client libs",
+  "name": "tonva-core",
+  "version": "0.1.0",
+  "description": "tonva core",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/henryti/tonva-react"
+    "url": "https://github.com/henryti/tonva-core"
   },
   "scripts": {
     "start": "set PORT=3200 && react-scripts-ts start",
