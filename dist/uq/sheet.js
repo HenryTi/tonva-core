@@ -215,7 +215,7 @@ var UqSheet = /** @class */ (function (_super) {
             });
         });
     };
-    UqSheet.prototype.createPageStateItems = function () { return new PageStateItems(this); };
+    UqSheet.prototype.createPageStateItems = function () { return new PageStateItems(this.uq.tonva, this); };
     UqSheet.prototype.stateSheetCount = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -461,8 +461,8 @@ var MySheetsCaller = /** @class */ (function (_super) {
 }(SheetCaller));
 var PageStateItems = /** @class */ (function (_super) {
     __extends(PageStateItems, _super);
-    function PageStateItems(sheet) {
-        var _this = _super.call(this, true) || this;
+    function PageStateItems(tonva, sheet) {
+        var _this = _super.call(this, tonva, true) || this;
         _this.sheet = sheet;
         _this.pageSize = 10;
         return _this;

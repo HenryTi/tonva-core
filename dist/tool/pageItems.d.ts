@@ -1,5 +1,7 @@
 import { IObservableArray } from 'mobx';
+import { Tonva } from '../Tonva';
 export declare abstract class PageItems<T> {
+    protected tonva: Tonva;
     loading: boolean;
     beforeLoad: boolean;
     loaded: boolean;
@@ -8,7 +10,7 @@ export declare abstract class PageItems<T> {
     get items(): IObservableArray<T>;
     topDiv: string;
     bottomDiv: string;
-    constructor(itemObservable?: boolean);
+    constructor(tonva: Tonva, itemObservable?: boolean);
     private isFirst;
     private pageItemAction;
     private itemConverter;

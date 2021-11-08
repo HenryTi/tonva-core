@@ -3,6 +3,7 @@ import { UqMan } from './uqMan';
 import { TuidImport, TuidInner } from './tuid';
 import { AppConfig, UqConfig } from '../app';
 import { Web, UqData } from '../web';
+import { Tonva } from '../Tonva';
 
 export interface TVs {
     [uqName:string]: {
@@ -14,10 +15,12 @@ export class UQsMan {
 	private uqMans: UqMan[] = [];
     private collection: {[uqLower: string]: UqMan};
     private readonly tvs: TVs;
+	readonly tonva: Tonva;
 	readonly web: Web;
 
-    constructor(web:Web, tvs:TVs) {
-		this.web = web;
+    constructor(tonva: Tonva, tvs:TVs) {
+		this.tonva = tonva;
+		this.web = tonva.web;
         this.tvs = tvs || {};
 		this.buildTVs();
 		this.uqMans = [];
@@ -231,8 +234,8 @@ export class UQsManApp extends UQsMan {
     readonly localData: LocalCache;
     id: number;
 
-	constructor(web:Web, tonvaAppName:string, tvs:TVs) {
-		super(web, tvs);
+	constructor(tonva:Tonva, tonvaAppName:string, tvs:TVs) {
+		super(tonva, tvs);
         let parts = tonvaAppName.split('/');
         if (parts.length !== 2) {
             throw new Error('tonvaApp name must be / separated, owner/app');

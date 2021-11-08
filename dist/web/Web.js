@@ -155,7 +155,7 @@ var Web = /** @class */ (function () {
                     case 0:
                         app = appConfig.app, uqConfigs = appConfig.uqs, tvs = appConfig.tvs, version = appConfig.version;
                         name = app.name, dev = app.dev;
-                        uqsMan = this.uqsMan = new uq_1.UQsManApp(this, dev.name + "/" + name, tvs);
+                        uqsMan = this.uqsMan = new uq_1.UQsManApp(this.tonva, dev.name + "/" + name, tvs);
                         appOwner = uqsMan.appOwner, appName = uqsMan.appName;
                         localData = uqsMan.localData;
                         uqAppData = localData.get();
@@ -199,7 +199,7 @@ var Web = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.uqsMan = new uq_1.UQsMan(this, tvs);
+                        this.uqsMan = new uq_1.UQsMan(this.tonva, tvs);
                         return [4 /*yield*/, this._loadUqs(uqConfigs)];
                     case 1:
                         uqs = _a.sent();

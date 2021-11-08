@@ -39,10 +39,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CacheIds = void 0;
 var mobx_1 = require("mobx");
 var CacheIds = /** @class */ (function () {
-    function CacheIds(maxCount) {
+    function CacheIds(tonva, maxCount) {
         if (maxCount === void 0) { maxCount = 100; }
         this.arr = [];
         this.dict = new Map();
+        this.tonva = tonva;
         (0, mobx_1.makeObservable)(this, {
             dict: mobx_1.observable,
         });

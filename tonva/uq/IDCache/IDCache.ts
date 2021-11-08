@@ -1,16 +1,19 @@
 import { observable } from 'mobx';
+import { Tonva } from '../../Tonva';
 import { Uq } from '../uqMan';
 
 const maxCacheSize = 1000;
 const delayLoad = 30; 	// 延迟loading的时间
 export class IDCache {
+	protected tonva: Tonva;
 	protected uq: Uq;
 	private queue: number[] = [];               							// 每次使用，都排到队头
 	private cache = observable.map<number, object|number>({}, {deep: false});    // 已经缓冲的, 如果是数值，则是重复取的次数
 	private waitingIds: number[] = [];          							// 等待loading的
 	private timeoutHandler: any;
 
-	constructor(uq: Uq) {
+	constructor(tonva: Tonva, uq: Uq) {
+		this.tonva = tonva;
 		this.uq = uq;
 	}
 

@@ -3,6 +3,7 @@ import { LocalMap, LocalCache } from '../tool';
 import { UqMan } from './uqMan';
 import { UqConfig } from '../app';
 import { Web, UqData } from '../web';
+import { Tonva } from '../Tonva';
 export interface TVs {
     [uqName: string]: {
         [tuidName: string]: (values: any) => JSX.Element;
@@ -12,8 +13,9 @@ export declare class UQsMan {
     private uqMans;
     private collection;
     private readonly tvs;
+    readonly tonva: Tonva;
     readonly web: Web;
-    constructor(web: Web, tvs: TVs);
+    constructor(tonva: Tonva, tvs: TVs);
     buildUqs(uqDataArr: UqData[], version: string, uqConfigs?: UqConfig[]): Promise<string[]>;
     uq(uqName: string): UqMan;
     getUqUserRoles(uqLower: string): Promise<string[]>;
@@ -32,5 +34,5 @@ export declare class UQsManApp extends UQsMan {
     readonly localMap: LocalMap;
     readonly localData: LocalCache;
     id: number;
-    constructor(web: Web, tonvaAppName: string, tvs: TVs);
+    constructor(tonva: Tonva, tonvaAppName: string, tvs: TVs);
 }

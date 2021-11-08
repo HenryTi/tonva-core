@@ -55,9 +55,10 @@ exports.UQsManApp = exports.UQsMan = void 0;
 var tool_1 = require("../tool");
 var uqMan_1 = require("./uqMan");
 var UQsMan = /** @class */ (function () {
-    function UQsMan(web, tvs) {
+    function UQsMan(tonva, tvs) {
         this.uqMans = [];
-        this.web = web;
+        this.tonva = tonva;
+        this.web = tonva.web;
         this.tvs = tvs || {};
         this.buildTVs();
         this.uqMans = [];
@@ -317,8 +318,8 @@ var UQsMan = /** @class */ (function () {
 exports.UQsMan = UQsMan;
 var UQsManApp = /** @class */ (function (_super) {
     __extends(UQsManApp, _super);
-    function UQsManApp(web, tonvaAppName, tvs) {
-        var _this = _super.call(this, web, tvs) || this;
+    function UQsManApp(tonva, tonvaAppName, tvs) {
+        var _this = _super.call(this, tonva, tvs) || this;
         var parts = tonvaAppName.split('/');
         if (parts.length !== 2) {
             throw new Error('tonvaApp name must be / separated, owner/app');

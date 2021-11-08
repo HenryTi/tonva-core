@@ -43,7 +43,7 @@ exports.PageItems = void 0;
 var lodash_1 = __importDefault(require("lodash"));
 var mobx_1 = require("mobx");
 var PageItems = /** @class */ (function () {
-    function PageItems(itemObservable) {
+    function PageItems(tonva, itemObservable) {
         var _this = this;
         if (itemObservable === void 0) { itemObservable = false; }
         this.loading = false;
@@ -81,6 +81,7 @@ var PageItems = /** @class */ (function () {
         this.pageSize = 30;
         this.appendPosition = 'tail';
         this.changing = false;
+        this.tonva = tonva;
         (0, mobx_1.makeObservable)(this, {
             loading: mobx_1.observable,
             beforeLoad: mobx_1.observable,

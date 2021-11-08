@@ -1,11 +1,14 @@
 import {makeObservable, observable} from 'mobx';
+import { Tonva } from '../Tonva';
 
 export interface Id {
     id: number;
 }
 
 export abstract class CacheIds<T extends Id> {
-    constructor(maxCount:number = 100) {
+    protected tonva: Tonva;
+    constructor(tonva: Tonva, maxCount:number = 100) {
+        this.tonva = tonva;
 		makeObservable(this, {
 			dict: observable,
 		})

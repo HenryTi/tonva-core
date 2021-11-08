@@ -535,6 +535,7 @@ var UqMan = /** @class */ (function () {
         this.IDLocalRender = function (id, render) {
             return _this.IDRender(-id, render);
         };
+        this.tonva = uqs.tonva;
         this.web = uqs.web;
         this.createBoxId = createBoxId;
         if (createBoxId === undefined) {
@@ -1005,7 +1006,7 @@ var UqMan = /** @class */ (function () {
             }
         });
         this.proxy = ret;
-        this.idCache = new IDCache_1.IDCache(this.proxy);
+        this.idCache = new IDCache_1.IDCache(this.tonva, this.proxy);
         return ret;
     };
     UqMan.prototype.showReload = function (msg) {

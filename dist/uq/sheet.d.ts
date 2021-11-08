@@ -1,6 +1,7 @@
 import { Entity } from './entity';
 import { PageItems } from '../tool/pageItems';
 import { ArrFields } from './uqMan';
+import { Tonva } from '../Tonva';
 export interface SheetState {
     name: string;
     actions: SheetAction[];
@@ -52,7 +53,7 @@ export declare class Sheet extends UqSheet<any, any> {
 }
 export declare class PageStateItems<T> extends PageItems<T> {
     private sheet;
-    constructor(sheet: Sheet);
+    constructor(tonva: Tonva, sheet: Sheet);
     protected loadResults(param: any, pageStart: any, pageSize: number): Promise<{
         [name: string]: any[];
     }>;

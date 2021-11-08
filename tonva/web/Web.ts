@@ -129,7 +129,7 @@ export class Web {
 		let {app, uqs:uqConfigs, tvs, version} = appConfig;
 
 		let {name, dev} = app;
-		let uqsMan = this.uqsMan = new UQsManApp(this, `${dev.name}/${name}`, tvs);
+		let uqsMan = this.uqsMan = new UQsManApp(this.tonva, `${dev.name}/${name}`, tvs);
         let {appOwner, appName} = uqsMan;
         let {localData} = uqsMan;
         let uqAppData:UqAppData = localData.get();
@@ -158,7 +158,7 @@ export class Web {
 
 	// 返回 errors, 每个uq一行
 	async loadUqs(uqConfigs: UqConfig[], version:string, tvs:TVs):Promise<string[]> {
-		this.uqsMan = new UQsMan(this, tvs);
+		this.uqsMan = new UQsMan(this.tonva, tvs);
 		let uqs = await this._loadUqs(uqConfigs);
 		return await this.uqsMan.buildUqs(uqs, version, uqConfigs);
 	}

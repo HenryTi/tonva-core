@@ -14,6 +14,7 @@ import { UqEnum } from './enum';
 import { UqConfig } from '../app';
 import { ID, IX, IDX } from './ID';
 import { Web, UqData, UqApi } from '../web';
+import { Tonva } from '../Tonva';
 export declare type FieldType = 'id' | 'tinyint' | 'smallint' | 'int' | 'bigint' | 'dec' | 'float' | 'double' | 'char' | 'text' | 'datetime' | 'date' | 'time' | 'timestamp';
 export declare function fieldDefaultValue(type: FieldType): 0 | "" | "2000-1-1" | "0:00";
 export interface Field {
@@ -284,9 +285,10 @@ export declare class UqMan {
     readonly name: string;
     readonly uqApi: UqApi;
     readonly id: number;
+    readonly tonva: Tonva;
+    readonly web: Web;
     uqVersion: number;
     config: UqConfig;
-    protected web: Web;
     constructor(uqs: UQsMan, uqData: UqData, createBoxId: CreateBoxId, tvs: {
         [entity: string]: (values: any) => JSX.Element;
     });

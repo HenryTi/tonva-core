@@ -4,6 +4,7 @@ import { PageItems } from '../tool';
 import {Field, ArrFields} from './uqMan';
 import {Entity} from './entity';
 import { QueryQueryCaller, QueryPageCaller } from './caller';
+import { Tonva } from '../Tonva';
 
 export type QueryPageApi = (name:string, pageStart:any, pageSize:number, params:any) => Promise<string>;
 
@@ -11,8 +12,8 @@ export class QueryPager<T extends any> extends PageItems<T> {
 	private query: Query;
 	private $page: any;
 	protected idFieldName: any;
-    constructor(query: Query, pageSize?: number, firstSize?: number, itemObservable?:boolean) {
-        super(itemObservable);
+    constructor(tonva: Tonva, query: Query, pageSize?: number, firstSize?: number, itemObservable?:boolean) {
+        super(tonva, itemObservable);
         this.query = query;
         if (pageSize !== undefined) this.pageSize = pageSize;
 		if (firstSize !== undefined) this.firstSize = firstSize;

@@ -1,5 +1,3 @@
-//import * as React from 'react';
-//import { observer } from 'mobx-react';
 import { Tuid } from "./tuid";
 
 export interface BoxId {

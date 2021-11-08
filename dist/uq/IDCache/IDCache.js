@@ -41,7 +41,7 @@ var mobx_1 = require("mobx");
 var maxCacheSize = 1000;
 var delayLoad = 30; // 延迟loading的时间
 var IDCache = /** @class */ (function () {
-    function IDCache(uq) {
+    function IDCache(tonva, uq) {
         var _this = this;
         this.queue = []; // 每次使用，都排到队头
         this.cache = mobx_1.observable.map({}, { deep: false }); // 已经缓冲的, 如果是数值，则是重复取的次数
@@ -80,6 +80,7 @@ var IDCache = /** @class */ (function () {
                 }
             });
         }); };
+        this.tonva = tonva;
         this.uq = uq;
     }
     IDCache.prototype.getValue = function (id) {

@@ -1,8 +1,10 @@
+import { Tonva } from '../Tonva';
 export interface Id {
     id: number;
 }
 export declare abstract class CacheIds<T extends Id> {
-    constructor(maxCount?: number);
+    protected tonva: Tonva;
+    constructor(tonva: Tonva, maxCount?: number);
     private maxCount;
     private arr;
     dict: Map<number, T>;

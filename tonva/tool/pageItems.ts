@@ -1,7 +1,9 @@
 import _ from 'lodash';
 import {observable, IObservableArray, computed, makeObservable, runInAction} from 'mobx';
+import { Tonva } from '../Tonva';
 
 export abstract class PageItems<T> {
+	protected tonva: Tonva;
     loading: boolean = false;
     beforeLoad: boolean = true;
     loaded: boolean = false;
@@ -15,7 +17,8 @@ export abstract class PageItems<T> {
     topDiv:string = '$$top';
 	bottomDiv:string = '$$bottom';
 
-    constructor(itemObservable:boolean = false) {
+    constructor(tonva: Tonva, itemObservable:boolean = false) {
+		this.tonva = tonva;
 		makeObservable(this, {
 			loading: observable,
 			beforeLoad: observable,
@@ -32,7 +35,7 @@ export abstract class PageItems<T> {
 	private isFirst: boolean = true;
 	private pageItemAction: (item:T, results:{[name:string]:any[]}) => void;
 	private itemConverter: (item:any, queryResults:{[name:string]:any[]}) => T;
-		
+
 	setEachPageItem(pageItemAction: (item:T, results:{[name:string]:any[]}) => void) {
 		this.pageItemAction = pageItemAction;
 	}

@@ -62,8 +62,8 @@ var entity_1 = require("./entity");
 var caller_1 = require("./caller");
 var QueryPager = /** @class */ (function (_super) {
     __extends(QueryPager, _super);
-    function QueryPager(query, pageSize, firstSize, itemObservable) {
-        var _this = _super.call(this, itemObservable) || this;
+    function QueryPager(tonva, query, pageSize, firstSize, itemObservable) {
+        var _this = _super.call(this, tonva, itemObservable) || this;
         _this.query = query;
         if (pageSize !== undefined)
             _this.pageSize = pageSize;

@@ -2,6 +2,7 @@ import { Entity } from './entity';
 import { PageItems } from '../tool/pageItems';
 import { EntityCaller } from './caller';
 import { ArrFields } from './uqMan';
+import { Tonva } from '../Tonva';
 
 export interface SheetState {
     name: string;
@@ -138,7 +139,7 @@ export class UqSheet<M, V> extends Entity {
         let params = {state:state, pageStart:pageStart, pageSize:pageSize};
         return await new StateSheetsCaller(this, params).request();
     }
-    createPageStateItems<T>(): PageStateItems<T> {return new PageStateItems<T>(this);}
+    createPageStateItems<T>(): PageStateItems<T> {return new PageStateItems<T>(this.uq.tonva, this);}
 
     async stateSheetCount():Promise<StateCount[]> {
         /*
@@ -271,8 +272,8 @@ class MySheetsCaller extends SheetCaller<{state:string, pageStart:number, pageSi
 
 export class PageStateItems<T> extends PageItems<T> {
     private sheet: Sheet;
-    constructor(sheet: Sheet) {
-        super(true);
+    constructor(tonva:Tonva, sheet: Sheet) {
+        super(tonva, true);
         this.sheet = sheet;
         this.pageSize = 10;
 	}
