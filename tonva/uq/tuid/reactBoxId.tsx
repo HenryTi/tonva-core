@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BoxId } from './boxId';
 import { Tuid } from './tuid';
 import { observer } from 'mobx-react';

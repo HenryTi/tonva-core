@@ -1,7 +1,6 @@
 import { Tuid } from "./tuid";
 
 /*
-import * as React from 'react';
 import { Tuid } from './tuid/tuid';
 import { TuidDiv } from './tuid/tuidDiv';
 import { TvTemplet } from '../tools';

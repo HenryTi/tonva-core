@@ -1,4 +1,3 @@
-//import * as React from 'react';
 //import { Page, nav, LMR } from "../components";
 import { VPageCore } from '../vm';
 //import { appInFrame } from '../net';

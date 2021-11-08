@@ -5,7 +5,6 @@ import {HttpChannelUI} from './httpChannelUI';
 import { Caller } from './caller';
 import { env } from '../tool';
 import { Web } from './Web';
-import { Tonva } from '../Tonva';
 
 /*
 export async function httpGet(url:string, params?:any):Promise<any> {
